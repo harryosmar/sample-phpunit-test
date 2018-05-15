@@ -1,0 +1,29 @@
+{
+    "name": "harry/sample-01",
+    "authors": [
+        {
+            "name": "Harry Sitohang",
+            "email": "harry@olx.co.id"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9",
+        "phpunit/phpunit": "~5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sample\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sample\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit -c phpunit.xml --coverage-text --coverage-clover=coverage.clover --debug"
+    }
+}
