@@ -7,7 +7,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "spomky-labs/jose": "^7.1"
     },
     "require-dev": {
         "mockery/mockery": "^0.9",
