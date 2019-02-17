@@ -29,5 +29,6 @@ class PersonTest extends Base
          */
         $this->assertEquals($abilities, $patrick->getAbility());
         $this->assertEquals($abilities, $spongebob->getAbility());
+        $this->assertEquals($abilities, (new Person('anonymous'))->getAbility());
     }
 }
