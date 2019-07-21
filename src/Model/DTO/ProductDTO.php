@@ -6,6 +6,8 @@
 
 namespace Sample\Model\DTO;
 
+use Sample\Model\Exception\InvalidDiscountException;
+
 class ProductDTO {
   /**
    * @var int
@@ -26,6 +28,10 @@ class ProductDTO {
    * @return float
    */
   public function getDiscountedPrice() : float {
+    if ($this->discount < 0 || $this->discount > 100) {
+      throw new InvalidDiscountException($this->productID, $this->discount);
+    }
+
     return (100 - $this->discount) / 100 * $this->price;
   }
 }
