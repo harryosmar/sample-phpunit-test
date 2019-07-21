@@ -21,7 +21,7 @@ class ProductDiscountTest extends Base {
    *
    * @return void
    */
-  public function givenTheProductIDShouldBeAbleToCalculateDiscountedPrice(
+  public function givenValidDiscountWhenGetDiscountedPriceCalledThenReturnTheCorrectDiscountedPrice(
       float $price,
       float $discount,
       float $expectedDiscountedPrice
@@ -51,14 +51,14 @@ class ProductDiscountTest extends Base {
   /**
    * @test
    * @dataProvider getInvalidDataProvider
-   * @expectedException \Sample\Model\Exception\InvalidDiscountException
+   * @expectedException \Sample\Exception\InvalidDiscountException
    *
    * @param float $price
    * @param float $discount
    *
    * @return void
    */
-  public function givenInvalidDiscountThenShouldBeExpectException(float $price, float $discount) {
+  public function givenInvalidDiscountWhenGetDiscountedPriceCalledThenShouldBeExpectException(float $price, float $discount) {
     // Arrange
     $productID = 1;
 

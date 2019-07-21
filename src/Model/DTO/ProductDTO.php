@@ -6,7 +6,7 @@
 
 namespace Sample\Model\DTO;
 
-use Sample\Model\Exception\InvalidDiscountException;
+use Sample\Exception\InvalidDiscountException;
 
 class ProductDTO {
   /**

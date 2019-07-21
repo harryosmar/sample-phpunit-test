@@ -4,7 +4,7 @@
  * @copyright 2019 Wayfair LLC - All rights reserved
  */
 
-namespace Sample\Model\Exception;
+namespace Sample\Exception;
 
 use LogicException;
 
