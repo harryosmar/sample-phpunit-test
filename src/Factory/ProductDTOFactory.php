@@ -37,7 +37,7 @@ class ProductDTOFactory {
    *
    * @return ProductDTO
    */
-  public function generateProductDTOByProductID(int $productID) {
+  public function generateProductDTOByProductID(int $productID) : ProductDTO {
     $productDTO            = new ProductDTO();
     $productDTO->productID = $productID;
     $productDTO->price     = $this->productDAO->getPrice($productID);
