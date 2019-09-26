@@ -11,7 +11,7 @@ class PositionChecker
      * 1. Expected value for input string consist of integer values
      * 2. To get last char value use position with value -1
      * 3. If position is not found, because out of range then return null
-     * 4. @param string $input
+     * @param string $input
      * @param int $position
      * @return string|null
      * @todo It will be good if there is a feature not only to get 1st last element, but also 2th => -2 position, 3rd => -3, 4th => -4, ...th => ...-th
