@@ -7,7 +7,8 @@ namespace Sample;
 class PositionChecker
 {
     /**
-     * @TODO this script still not handle : - input consist only with 1 char,  - if the position is out of input range, should throw an exception
+     * @TODO this script can't handle : - input consist only with 1 char,  - if the position is out of input range, should throw an exception
+     * Expected value in input string consist of integer values
      * @param string $input
      * @param int $position
      * @return string
