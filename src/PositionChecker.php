@@ -7,17 +7,69 @@ namespace Sample;
 class PositionChecker
 {
     /**
-     * @TODO this script can't handle : - input consist only with 1 char,  - if the position is out of input range, should throw an exception
-     * Expected value in input string consist of integer values
+     * Notes :
+     * 1. Expected value for input string consist of integer values
+     * 2. To get last char value use position with value -1
+     * 3. If position is not found, because out of range then return null
+     * 4. @param string $input
+     * @param int $position
+     * @return string|null
+     * @todo It will be good if there is a feature not only to get 1st last element, but also 2th => -2 position, 3rd => -3, 4th => -4, ...th => ...-th
+     */
+    public function check(string $input, int $position)
+    {
+        if ($position === 1) {
+            return $this->getFirstChar($input);
+        }
+
+        if ($position === -1) {
+            return $this->getLastChar($input);
+        }
+
+        return $this->getBetweenFirstAndLastChar($input, $position);
+    }
+
+    /**
+     * @param string $input
+     * @return mixed
+     */
+    private function getFirstChar(string $input)
+    {
+        preg_match("/^(\d).*/", $input, $matches);
+
+        return $matches[1];
+    }
+
+
+    /**
+     * @param string $input
+     * @return mixed
+     */
+    private function getLastChar(string $input)
+    {
+        preg_match("/.*(\d)$/", $input, $matches);
+
+        return $matches[1];
+    }
+
+    /**
      * @param string $input
      * @param int $position
-     * @return string
+     * @return mixed|null
      */
-    public function check(string $input, int $position): string
+    private function getBetweenFirstAndLastChar(string $input, int $position)
     {
-        $position = (--$position <= 0) ? 1 : $position;
-        preg_match("/^(\d{1,$position})(\d).*$/", $input, $matches);
+        --$position;
+        preg_match(
+            sprintf("/^\d{%d}(\d)\d*$/", $position),
+            $input,
+            $matches
+        );
 
-        return $position === 1 ? $matches[1] : $matches[2];
+        if (!isset($matches[1])) {
+            return null;
+        }
+
+        return $matches[1];
     }
 }
